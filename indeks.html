@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINcii Store | Shoes & Sandals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">VINcii <span>STORE</span></div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#produk">Produk</a>
+        <a href="#ulasan">Ulasan</a>
+    </nav>
+
+    <button onclick="bukaKeranjang()" class="cart-button">
+        🛒 Keranjang (<span id="jumlahKeranjang">0</span>)
+    </button>
+</header>
+
+<section class="hero" id="home">
+    <div>
+        <p class="subtitle">WELCOME TO VINCII STORE</p>
+        <h1>Find Your Style<br>
+            <span>Every Step</span>
+        </h1>
+        <p>
+            Temukan koleksi sepatu dan sandal terbaik
+            dengan desain modern dan nyaman digunakan.
+        </p>
+        <a href="#produk" class="btn">Belanja Sekarang</a>
+    </div>
+</section>
+
+<section class="produk" id="produk">
+    <h2>Koleksi Produk</h2>
+    <p class="deskripsi">Pilih produk favoritmu sekarang</p>
+
+    <div class="produk-container">
+
+        <div class="card">
+            <img src="gambar\s.bunga.jpeg"
+                 alt="Flat Shoes">
+            <h3>Red Sneakers</h3>
+            <p>Rp175.000</p>
+            <label>Ukuran</label>
+            <select id="ukuran1">
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
+            <button onclick="tambahKeranjang('Red Sneakers',175000,'ukuran1')">
+                Tambah Keranjang
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="gambar\s.coklat.jpeg"
+                 alt="Flat Shoes">
+            <h3>Casual Shoes</h3>
+            <p>Rp150.000</p>
+            <label>Ukuran</label>
+            <select id="ukuran2">
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
+            <button onclick="tambahKeranjang('Casual Shoes',150000,'ukuran2')">
+                Tambah Keranjang
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="gambar\s.cream.jpeg"
+                 alt="Flat Shoes">
+            <h3>Casual Sandals</h3>
+            <p>Rp129.000</p>
+            <label>Ukuran</label>
+            <select id="ukuran3">
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
+            <button onclick="tambahKeranjang('Casual Sandals',129000,'ukuran3')">
+                Tambah Keranjang
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="gambar\s.hermes.jpeg"
+                 alt="Sendal">
+            <h3>Fashion Sandals</h3>
+            <p>Rp159.000</p>
+            <label>Ukuran</label>
+            <select id="ukuran4">
+                <option value="38">38</option>
+                <option value="39">39</option>
+                <option value="40">40</option>
+                <option value="41">41</option>
+                <option value="42">42</option>
+            </select>
+            <button onclick="tambahKeranjang('Fashion Sandals',159000,'ukuran4')">
+                Tambah Keranjang
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<section class="ulasan" id="ulasan">
+    <h2>Ulasan Pelanggan</h2>
+
+    <div id="daftarUlasan">
+        <div class="review">
+            <h3>Andini</h3>
+            <p>★★★★★</p>
+            <p>Sendalnya bagus dan nyaman digunakan!</p>
+        </div>
+
+        <div class="review">
+            <h3>Raya</h3>
+            <p>★★★★★</p>
+            <p>Barang sesuai foto dan kualitas bagus.</p>
+        </div>
+    </div>
+
+    <div class="review">
+            <h3>hikmah</h3>
+            <p>★★★★★</p>
+            <p>Flat shoes nya lucu dan nyaman digunakan.</p>
+        </div>
+    </div>
+
+    <h3>Berikan Ulasan Anda</h3>
+
+    <input type="text" id="namaUlasan" placeholder="Nama Anda">
+    <select id="ratingUlasan">
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★</option>
+        <option value="3">★★★</option>
+        <option value="2">★★</option>
+        <option value="1">★</option>
+    </select>
+
+    <textarea id="isiUlasan" placeholder="Tulis ulasan Anda"></textarea>
+
+    <button onclick="kirimUlasan()">Kirim Ulasan</button>
+</section>
+
+<footer>
+    <h2>VINcii STORE</h2>
+    <p>Find Your Style, Make Every Step Count.</p>
+    <p>Instagram: @vinciistoreid</p>
+    <p>© 2026 VINcii Store</p>
+</footer>
+
+<!-- KERANJANG -->
+<div id="keranjang" class="keranjang">
+    <div class="keranjang-box">
+        <button class="close" onclick="tutupKeranjang()">✖</button>
+        <h2>Keranjang Belanja</h2>
+
+        <div id="isiKeranjang"></div>
+
+        <h3>Total: <span id="totalHarga">Rp0</span></h3>
+
+        <button onclick="checkoutInstagram()" class="checkout">
+            Checkout Instagram
+        </button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

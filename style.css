@@ -66,7 +66,7 @@ nav a:hover {
     background:
     linear-gradient(70deg, #f1eee7 40%, #00000010),
     url("gambar/logo.jpeg")
-    center/cover;
+    center/cover no-repeat;
 }
 
 .hero h1 {
